@@ -9,7 +9,7 @@ class contains_rep{
 		for (int i = 0; i < arr.length - 1; i++) {
         if (arr[i] == arr[i + 1]) flag = true;
     }
-    flag = false;
+    //flag = false;
     System.out.println(""+flag);
 	}
 }
