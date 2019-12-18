@@ -12,4 +12,8 @@ int main(){
     //because we don't know what we are manipulating
     (*p)++;
     cout<<*p<<setw(40)<<p<<p<<endl; //setw(size) fixed length to adjust content
+    int *ptr = 0;
+int a = 10;
+*ptr = a;
+ cout << *ptr << endl; //segment fault
 }
