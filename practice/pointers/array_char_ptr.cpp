@@ -24,5 +24,5 @@ int main(){
     char c1  = 'a';
     char *pc = &c1;
     cout<<endl<<c<<endl<<c1<<endl<<pc; // here output that time was ad??? becoz it prints till it dont find \0
-
+ //i[a] also works where i is index and a is array
 }
