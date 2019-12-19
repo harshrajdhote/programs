@@ -2,7 +2,7 @@
 using namespace std;
 int main(){
     int a[10];
-    cout<<a<<endl;
+    cout<<a<<endl;   // **note no memory allocated for a if we print &a still it gives the base address
     cout<<&a[0]<<endl;
     a[0] = 5;
     a[1] = 10;
@@ -10,7 +10,7 @@ int main(){
     cout<<*(a+1)<<endl;
     int *p = &a[0];
     cout<<a<<endl<<p<<endl;
-    cout<<&p<<endl<<&a<<endl;
+    cout<<&p<<endl<<&a<<endl; // p has its own address but a doesn't
     cout<<sizeof(p)<<endl<<sizeof(a)<<endl;
     p=p+1;
     // a=a+1; gives error
