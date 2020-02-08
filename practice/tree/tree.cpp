@@ -1,6 +1,7 @@
 #include<iostream>
+#include<queue>
 #include "TreeNode.h"
-TreeNode<int>* takeInput(){
+TreeNode<int>* takeInput(){ //preorder input taking 
    int rootData;
    cout<<"Enter Data"<<endl;
    cin>>rootData;
@@ -15,6 +16,31 @@ TreeNode<int>* takeInput(){
    }  
    return root;  // give the preorder input
 }
+TreeNode <int>* takeInputLevelWise(){
+    cout<<"Enter the root data\n";
+    int rootdata;
+    cin>>rootdata;
+    TreeNode<int>*root = new TreeNode<int>(rootdata);
+    queue<TreeNode<int>*> pendingNodes;
+    pendingNodes.push(root);
+    while(pendingNodes.size() != 0){
+          TreeNode<int> * front = pendingNodes.front();
+          pendingNodes.pop();
+          cout<<"Enter the number of children of "<<front->data<<endl;
+          int numChild;
+          cin>>numChild;
+          for(int i = 0;i<numChild;i++)
+          {
+              int childData;
+              cout<<"Enter "<<i<<" th child of "<<front->data<<endl;
+              cin>>childData;
+              TreeNode<int> * child = new TreeNode<int>(childData);
+              front->children.push_back(child);
+              pendingNodes.push(child);
+          }
+    }
+    //TreeNode<int>* root = new TreeNode<int>
+}
 void PrintTree(TreeNode<int>* root){
     if(root == NULL)
     return;      //not a base case it is edge case
@@ -26,7 +52,7 @@ void PrintTree(TreeNode<int>* root){
     PrintTree(root->children[i]);
 }
 int main(){
-    TreeNode<int> *root = takeInput();
+    TreeNode<int> *root = takeInputLevelWise();
     // TreeNode<int> *node1 = new TreeNode<int>(2);
     // TreeNode<int> *node2 = new TreeNode<int>(3);
     // TreeNode<int> *node3 = new TreeNode<int>(4);
