@@ -11,6 +11,8 @@ class iterator{
     {
 
         System.out.println( it.next() instanceof Integer);//true even if generics not used
+        a.add(23);
     }
+   
     }
 }
