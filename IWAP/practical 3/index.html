@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    </head>
+<body>
+   
+   <fieldset>
+  <legend>Registration form:</legend>
+    <form name="registration">    
+    <label><b><i>New Registration</i></b></label>
+        <br><br>
+        <label for="fname">First Name</label>
+    <input type="text" id="fname" value="fname" required placeholder="fname"><br>
+   
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" value="lname" required placeholder="lname"><br>
+   
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" required placeholder="dob"><br>
+       
+    <label for="age">age</label>
+    <input type="number" id="add" value="18" required placeholder="18"><br>
+
+               
+    <label for="email">E-mail</label>
+    <input type="email" id="email" value="" required placeholder="email"><br>
+       
+    <label for="password" >Password</label>
+    <input type="password"  id="password" value="" required placeholder="password"><br>
+       <label for="gender"  required>Gender</label>
+   <input type="radio" name="gender" value="male" checked placeholder="Male"> Male<br>
+  <input type="radio" name="gender" value="female" placeholder="Female"> Female<br>
+  <input type="radio" name="gender" value="other" placeholder="Other"> Other
+   
+       <br>
+        <label for="gender">Area of Interest</label>
+       <input type="checkbox" name="vehicle1" value="Bike">Writing<br>
+  <input type="checkbox" name="vehicle2" value="Car"> Poetry<br>
+   <input type="checkbox" name="vehicle2" value="Car"> Artist<br>
+   <input type="checkbox" name="vehicle2" value="Car"> Other<br>
+   <label for="gender">Address</label>
+   <input type="textarea"><br>
+
+    <input  formaction="redirect.html" formmethod="post" onclick="prompt('Thank You')" type="submit">
+    <input  type="reset" value="reset">
+</fieldset>
+    </form>
+</body>
+</html>

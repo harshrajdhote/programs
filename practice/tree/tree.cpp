@@ -1,6 +1,13 @@
 #include<iostream>
 #include<queue>
 #include "TreeNode.h"
+int countNodes(TreeNode<int>* root){
+    int ans = 1;
+    for(int i = 0;i<root->children.size();i++){
+        ans += countNodes(root->children[i]);
+    }
+    return ans;
+}
 TreeNode<int>* takeInput(){ //preorder input taking 
    int rootData;
    cout<<"Enter Data"<<endl;
@@ -15,6 +22,94 @@ TreeNode<int>* takeInput(){ //preorder input taking
        root->children.push_back(child);
    }  
    return root;  // give the preorder input
+}
+void printAtLevelK(TreeNode<int>* root , int k){
+    if(root == NULL)
+    {
+        return;
+    }
+    if( k == 0)
+    {
+        cout<<root->data<<endl;
+        return;
+    }
+
+    for(int i = 0;i<root->children.size();i++)
+    {
+        printAtLevelK(root->children[i],k-1);
+    }
+}
+int numLeafNodes(TreeNode<int>* root) {
+    if(root->children.size() == 0)
+        return 1;
+    int ans = 0; 
+    for(int i = 0;i<root->children.size();i++)
+    {
+        ans = ans + numLeafNodes(root->children[i]);
+    }
+    return ans;
+
+}
+
+TreeNode<int>* maxDataNode(TreeNode<int>* root) {
+    TreeNode<int>* max = root;
+    for(int i = 0;i<root->children.size();i++)
+    {
+        TreeNode <int>* tmp =  maxDataNode(root->children[i]);
+        if(max->data <  tmp->data)
+        {
+            max = tmp;
+        }
+            
+    }
+    return max;
+
+}
+void deleteTree(TreeNode<int> * root){
+    for(int i = 0;i<root->children.size();i++)
+    deleteTree(root->children[i]);
+    delete root;
+}
+int sumOfNodes(TreeNode<int>* root) {
+    int sum = root->data;
+    for(int i = 0;i<root->children.size();i++)
+        sum += sumOfNodes(root->children[i]);
+    return sum;
+}
+void preOrder(TreeNode<int>* root){
+    if(root == NULL)
+    return ;
+    cout<<root->data<<" ";
+    for(int i = 0;i<root->children.size();i++)
+    {
+        preOrder(root->children[i]);
+    }
+
+}
+bool containsX(TreeNode<int>* root, int x) {
+    
+    if(root->data == x)
+        return true;
+    for(int i = 0;i<root->children.size();i++)
+    {
+        if (containsX(root->children[i],x) == true)
+            return true;
+        
+    }
+    return false;
+    
+    
+  
+}
+void postOrder(TreeNode<int>* root) {
+    if(root == NULL)
+    return ;
+    
+    for(int i = 0;i<root->children.size();i++)
+    {
+        postOrder(root->children[i]);
+    }
+    cout<<root->data<<" ";
 }
 TreeNode <int>* takeInputLevelWise(){
     cout<<"Enter the root data\n";
@@ -39,6 +134,7 @@ TreeNode <int>* takeInputLevelWise(){
               pendingNodes.push(child);
           }
     }
+    return root;
     //TreeNode<int>* root = new TreeNode<int>
 }
 void PrintTree(TreeNode<int>* root){
@@ -61,6 +157,9 @@ int main(){
     // node2->children.push_back(node4);
     // root->children.push_back(node1); 
     // root->children.push_back(node2);
+    //cout<<"data"<<root->data;
+    //cout<<"child no"<<root->children.size();
     PrintTree(root);
+    cout<< "Nodes in tree :"<<countNodes(root);
        
  }

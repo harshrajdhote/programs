@@ -6,11 +6,17 @@ class listiterator{
     a.add(23);
     a.add(34);
     a.add(345);
-    ListIterator it = a.listIterator();
-    while(it.hasNext()){
+    ListIterator it = a.listIterator();  // if we use parent class ref to hold the child obj it access only 
+    while(it.hasNext()){                 // parent specific methods   
         System.out.println(it.nextIndex());
         System.out.println(it.next());
         
+    }
+    // it.add(23);  illegalstateException
+    // it.set(5);
+    while(it.hasPrevious()){
+        System.out.println(it.previous());
+
     }
     }
 }

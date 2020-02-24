@@ -1,0 +1,56 @@
+<html>
+    <head>
+   <style>
+       .abc {
+           width : 100px;
+           height : 100px;
+           background-color: aqua;
+           position: absolute;
+           float: left;
+           top: 0px;
+           transition: 5s;
+       }
+       
+       .container{
+           width: 100%;
+           height: 100%;
+           background-color: blanchedalmond;
+           transition: 5s;
+       }
+       .container:hover{
+           background-color: aqua;
+       }
+        .abc:hover{
+           background-color: blueviolet;
+           left: 60px;
+           top: 100px;
+           border-radius: 30%;
+           float: right;
+           transform: rotate(45deg)
+           translate(45deg) scale3d(20px);
+
+       }
+       
+       .scale{
+           transition: 3s;
+           
+       }
+       .scale:hover {
+           transform: scale(2,2.5) rotate(45deg);
+       }
+       
+       
+       </style>
+    </head>
+    <body >
+        
+       <form class = "scale" align = center style="margin-top: 20%;">
+         <!-- First Name<input type="text" ><br>
+         Last Name : <input type="text"><br>
+        
+         <button name = submit value = submit type = submit>submit</button> -->
+         <img src = "logo.png">
+       </form>
+   
+    </body>
+</html>
