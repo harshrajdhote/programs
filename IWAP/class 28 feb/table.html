@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table{
+			
+		}
+		thead{
+			color: white;
+			background-color: blue;
+			text-align: center;
+		}
+		tbody{
+			color: white;
+			background-color: green;
+			text-align: center;
+		}
+		tfoot{
+			color: white;
+			background-color: yellow;
+			text-align: center;
+		}
+		thead:hover{
+			color: grey;
+			background-color: blue;
+		}
+		tbody:hover{
+			color: grey;
+			background-color: green;
+			text-align: center;
+		}
+		tfoot:hover{
+			color: grey;
+			background-color: yellow;
+		}
+
+
+	</style>
+	<script>
+		var x = document.getElementById("myAudio"); 
+
+		function playAudio() { 
+		  x.play(); 
+		} 
+
+		function pauseAudio() { 
+		  x.pause(); 
+		} 
+</script>
+</head>
+<body>
+	<audio id="myAudio">
+   <source src="./test.ogg" type="audio/ogg">
+  <source src="./test.mp3" type="audio/mpeg">
+</audio>
+       <table border=2px>
+       	<colgroup><!-- Used to assign css to cols span property specifies no of cols  -->
+    <col span="2" style="background-color:red">
+    <col style="background-color:yellow">
+  </colgroup>
+       	<thead>
+       		
+        <tr><th>Sr no</th><th>Roll no</th><th>Name</th></tr>
+       </thead>
+       <tbody>
+        <tr><td>1</td><td>65</td><td>saundarya</td></tr>
+        <tr><td>2</td><td>69</td><td>vishal</td></tr> 
+       </tbody>
+       <tfoot>
+       	<tr><td>3</td><td><button onclick="playAudio()">play</button></td><td><button onclick="pauseAudio()">pause</button></td></tr>
+       
+       </tfoot>
+       </table>
+       <table border=2px>
+        <tr><th>Head1</th><th>&emsp;</th><th>&emsp;</th></tr>
+        <tr><th >Head2</th><td colspan="2"></td></tr>
+        <tr><th >Head3</th><td colspan="2"></td></tr> 
+       </table>
+       <iframe src="./table.html">
+
+  <p>Your browser does not support iframes.</p>
+</iframe>
+<embed src="./table.html"></embed>
+<object width="400" height="400" data="./table.html">
+</object>
+</body>
+</html>
