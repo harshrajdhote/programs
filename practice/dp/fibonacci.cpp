@@ -12,9 +12,14 @@ int fibohelper(int n,int *ans){
 }
 int fibo(int n){
    int *ans = new int[n+1];
-   memset(ans,-1,sizeof(ans));
+  // memset(ans,-1,sizeof(ans));
+  for(int i = 0;i<=n;i++){
+      ans[i] = -1;
+  }
    return fibohelper(n,ans);
 }
 int main(){
-     cout<<fibo(5);
+    int a;
+    cin>>a;
+     cout<<fibo(a);
 }
