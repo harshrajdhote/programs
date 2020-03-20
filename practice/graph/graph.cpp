@@ -1,7 +1,21 @@
 #include<iostream>
 using namespace std;
-void print(){
-    
+void print(int ** edges,int n,int sv,bool *visited){
+    cout<<sv<<endl;
+    visited[sv] = true;
+    for(int i = 0;i<n;i++)
+    {
+       if(i == sv)
+       continue;
+       if(edges[sv][i] == 1)
+       {
+           if(visited[i])
+           continue;
+       }
+       print(edges,n,i,visited);
+
+    }
+
 }
 int main(){
     int n,e;
@@ -21,5 +35,10 @@ int main(){
         edges[f][s] = 1;
         edges[s][f] = 1;
     }
-    print(edges,n);
+    bool *visited = new bool[n];
+    for(int i = 0;i<n;i++)
+    {
+        visited[i] = false;
+    }
+    print(edges,n,0,visited);
 }
