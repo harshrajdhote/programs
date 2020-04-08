@@ -1,5 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+//here in dp it is bottom up because we are starting from initial states 
+int fibo_dp(int n) {
+	int *ans = new int[n+1];
+
+	ans[0] = 0;
+	ans[1] = 1;
+
+	for(int i = 2; i <= n; i++) {
+		ans[i] = ans[i-1] + ans[i-2];
+	}
+
+	return ans[n];
+}
 int fibohelper(int n,int *ans){
     if(n<=1)
     return n;
@@ -23,3 +36,4 @@ int main(){
     cin>>a;
      cout<<fibo(a);
 }
+//this example is of memoization it is top down approach as we are dividing problem in to the smaller parts
