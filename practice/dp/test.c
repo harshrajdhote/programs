@@ -5,6 +5,7 @@
         }
  max(max_float,float)   
  #define test 
+ int b = 0;
 //  #ifdef test
 //  printf();
 //  #endif    
