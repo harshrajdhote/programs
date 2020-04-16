@@ -5,9 +5,9 @@
         }
  max(max_float,float)   
  #define test 
- #ifdef test
- printf();
- #endif    
+//  #ifdef test
+//  printf();
+//  #endif    
 void main(){
     // int a;
     // scanf("%s",&a);
