@@ -1,32 +1,36 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
-function add(){
-    const enteredNumber = parseInt(userInput.value);
-    const calcDesp = `${currentResult} + ${enteredNumber}`;
-    currentResult = currentResult +enteredNumber;//shortcut + +
+function getUserNumberInput(){
+    return parseInt(userInput.value);
+}
+function createAndWriteOutput(operator,resultBeforeCalc,calcNumber){
+    const calcDescription = `${resultBeforeCalc} ${operator} ${calcNumber}`;
     userInput.value = 0;
-    outputResult(currentResult,calcDesp);
+    outputResult(currentResult,calcDescription);
+}
+function add(){
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
+    currentResult = currentResult + enteredNumber;
+    createAndWriteOutput('+',initialResult,enteredNumber);
 }
 function divide(){
-    const enteredNumber = parseInt(userInput.value);
-    const calcDesp = `${currentResult} / ${enteredNumber}`;
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
     currentResult = currentResult / enteredNumber;
-    userInput.value = 0;
-    outputResult(currentResult,calcDesp);
+    createAndWriteOutput('/',initialResult,enteredNumber);
 }
 function multiply(){
-    const enteredNumber = parseInt(userInput.value);
-    const calcDesp = `${currentResult} * ${enteredNumber}`;
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
     currentResult = currentResult * enteredNumber;
-    userInput.value = 0;
-    outputResult(currentResult,calcDesp);
+    createAndWriteOutput('*',initialResult,enteredNumber);
 }
 function subtract(){
-    const enteredNumber = parseInt(userInput.value);
-    const calcDesp = `${currentResult} - ${enteredNumber}`;
+    const enteredNumber = getUserNumberInput();
+    const initialResult = currentResult;
     currentResult = currentResult - enteredNumber;
-    userInput.value = 0;
-    outputResult(currentResult,calcDesp);
+    createAndWriteOutput('-',initialResult,enteredNumber);
 }
 addBtn.addEventListener('click',add);
 multiplyBtn.addEventListener('click',multiply);
