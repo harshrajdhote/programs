@@ -1,3 +1,5 @@
-let currentResult = 0;
-let errMessage = `hello world`;
-outputResult(2,errMessage);
+function add(){
+    currentResult = currentResult + userInput.value;
+    outputResult(currentResult,'');
+}
+addBtn.addEventListener('click',add);
