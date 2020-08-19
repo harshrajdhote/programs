@@ -12,6 +12,12 @@ function createAndWriteOutput(operator,resultBeforeCalc,calcNumber){
     userInput.value = 0;
     outputResult(currentResult,calcDescription);
 }
+function reset(){
+    calcDescription='0';
+    userInput.value=0;
+    currentResult=0;
+    outputResult(currentResult,calcDescription);
+}
 function add(){
     const enteredNumber = getUserNumberInput();
     const initialResult = currentResult;
@@ -40,3 +46,4 @@ addBtn.addEventListener('click',add);
 multiplyBtn.addEventListener('click',multiply);
 subtractBtn.addEventListener('click',subtract);
 divideBtn.addEventListener('click',divide);
+resetBtn.addEventListener('click',reset);
