@@ -26,6 +26,21 @@ function endRound(){
     alert('You lost!');
     else if(currentMonsterHealth <=0 && currentPlayerHealth<=0)
     alert('draw');
+
+    if(
+        currentMonsterHealth <= 0 && currentPlayerHealth > 0 ||
+        currentPlayerHealth <= 0 && currentMonsterHealth > 0 ||
+        currentPlayerHealth <= 0 && currentMonsterHealth <= 0
+    ){
+        reset();
+    }
+}
+
+function reset(){
+    currentMonsterHealth = chosenMaxLife;
+    currentMonsterHealth = chosenMaxLife;
+    hasBonusLife = true;
+    resetGame(chosenMaxLife);
 }
 
 function attackMonster(mode){
