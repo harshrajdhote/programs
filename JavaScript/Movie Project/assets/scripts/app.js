@@ -36,6 +36,7 @@ const addMovieHandler = ()=>{
         alert('Invalid Input');
     }
     const newMovie = {
+        id : Math.random().toString(),
         title : titleValue,
         image : imageUrlValue,
         rating : ratingValue
@@ -44,7 +45,7 @@ const addMovieHandler = ()=>{
     console.log(newMovie);
     toggleMovieModalHandler();
     clearMovieInput();
-    renderNewMovieElement(newMovie.title,newMovie.image,newMovie.rating);
+    renderNewMovieElement(newMovie.id,newMovie.title,newMovie.image,newMovie.rating);
     UpdateUI();
 
 };
@@ -58,7 +59,7 @@ const UpdateUI = () =>{
         }
 };
 
-const renderNewMovieElement = (title,imageUrl,rating)=>{
+const renderNewMovieElement = (id,title,imageUrl,rating)=>{
     const newMovieElement = document.createElement('li');
     newMovieElement.className = 'movie-element';
     newMovieElement.innerHTML = `
@@ -72,9 +73,21 @@ const renderNewMovieElement = (title,imageUrl,rating)=>{
     `;
     const listRoot = document.getElementById('movie-list');
     listRoot.append(newMovieElement);
+    newMovieElement.addEventListener('click',deleteMovieHandler.bind(null,id));
 };
 
-
+const deleteMovieHandler = (movieId) => {
+    movieIndex++;
+    for(const movie of movies){
+        if(movie.id === movieId){
+            break;
+        }
+        movieIndex++;
+    }
+    movies.splice(movieIndex,1); //splice delete element with index and how many after that
+    const listRoot = document.getElementById("movie-list");
+    listRoot.children[movieIndex].remove();
+}
 
 
 
