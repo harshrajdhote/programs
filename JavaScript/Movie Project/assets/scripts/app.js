@@ -98,7 +98,7 @@ const deleteMovie = (movieId) => {
         }
         movieIndex++;
     }
-    movies.splice(movieIndex,1); //splice delete element with index and how many after that
+    movies.splice(movieIndex,1); //splice delete element with index and how many after that, we can specify 3rd arg also to add elements
     const listRoot = document.getElementById("movie-list");
     listRoot.children[movieIndex].remove();
     closeMovieDeletionModal();
