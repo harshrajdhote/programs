@@ -55,7 +55,7 @@ const addMovieHandler = () => {
     return;
   }
 
-  const newMovie = {
+  const newMovie = { 
     info: {
       title,
       [extraName]: extraValue
