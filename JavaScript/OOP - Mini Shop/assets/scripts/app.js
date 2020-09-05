@@ -20,10 +20,13 @@ class ElementAttribute{
 }
 
 class Component{
-  constructor(renderHookId){
+  constructor(renderHookId,shouldRender=true){
     this.hookId = renderHookId;
+    if(shouldRender){
+    this.render();
+    }
   }
-
+   render(){}
   createRootElement(tag,cssClasses,attributes){
     const rootElement = document.createElement(tag);
     if(cssClasses){
@@ -65,7 +68,8 @@ class ShoppingCart extends Component{
     this.cartItems = updatedItems;
     //this.render();
   }
-
+//this render will replace the parent render , becoz this represents the caller so 
+//caller in this above , when override is child , nd its this is considered.
   render(){
     
     const cartEl = this.createRootElement('section','cart');
@@ -79,24 +83,43 @@ class ShoppingCart extends Component{
   }
 }
 class ProductList extends Component{
-  products = [
-    new Product(
-      'A Pillow',
-      'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
-      'A soft pillow!',
-      19.99
-    ),
-    new Product(
-      'A Carpet',
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg',
-      'A carpet wh ich you might like - or not.',
-      89.99
-    )
-  ];
+  products = [];
   
   constructor(renderHookId){
+    super(renderHookId); 
   //  if(product) //no constructor overloading so here by default constuctor will be called with undefined
-    super(renderHookId);
+  this.fetchProducts();
+  // super is atlast becoz this data must need to initialized before parent 
+  //call
+   
+  }
+
+  fetchProducts(){
+    this.products = [
+      new Product(
+        'A Pillow',
+        'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
+        'A soft pillow!',
+        19.99
+      ),
+      new Product(
+        'A Carpet',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg',
+        'A carpet wh ich you might like - or not.',
+        89.99
+      )
+    ];  
+    this.renderProducts();
+  }
+
+
+  renderProducts(){
+    for (const prod of this.products) {
+      console.log(prod);
+      new ProductItem(prod,'prod-list');
+     // prodList.append(prodEl);
+     
+    }
   }
   
   addProduct(product){
@@ -111,12 +134,8 @@ class ProductList extends Component{
     //prodList.id = 'prod-list';
     // let i = 0;
     console.log(this.products);
-    for (const prod of this.products) {
-      console.log(prod);
-      const productItem = new ProductItem(prod,'prod-list');
-      productItem.render();
-     // prodList.append(prodEl);
-     
+    if(this.products && this.products.length > 0){
+      this.renderProducts();
     }
   // return prodList;
   }
@@ -125,8 +144,10 @@ class ProductList extends Component{
 class ProductItem extends Component{
   
   constructor(product,renderHookId){
-    super(renderHookId);
+    super(renderHookId,false);  //second approach and first approach in product list class
+   
     this.product = product;
+    this.render();
   }
 
   addToCart(){
@@ -153,13 +174,13 @@ class ProductItem extends Component{
   }
 }
 
-class Shop{
+class Shop {
+  constructor(){
+    this.render();
+  }
   render(){
-    const renderHook = document.getElementById('app');
     this.cart = new ShoppingCart("app");
-    this.cart.render();
     const productList = new ProductList("app");
-    productList.render();
   }
 }
 
@@ -167,7 +188,6 @@ class App{
   static cart;
   static init(){
     const shop = new Shop();
-    shop.render();
     this.cart = shop.cart; //indirectly creates static field
     
   }
