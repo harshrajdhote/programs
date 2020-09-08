@@ -44,6 +44,6 @@ console.dir(Person);
 const p = new Person();
 p.greet();
 p.printAge();
-console.log(p.__proto__);
+//console.log(p.__proto__);
 const p2 = new p.__proto__.constructor();
 console.log(p2);
