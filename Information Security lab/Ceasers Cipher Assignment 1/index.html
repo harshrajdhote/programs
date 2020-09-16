@@ -11,11 +11,14 @@
   <body>
     <section id="user-input" class="card">
       <div class="control">
-        <label for="plainText"> Plaintext (*only alphabets)</label>
-        <input type="text" id="plainText" />
-      
+        <label for="plainText"> Input File </label>
+        <input type="file" id="inputFile" />
+        <label for="plainText"> Input File Contents</label>
+        <input type="text" id="plainText"  />
+        <label for="key"> Key </label>
+        <input type="text" id="key"  />
       </div>
-     
+      
       <button id="encrypt-btn">Encrypt</button>
       <div id = "encryptResult" ></div>
     </section>
