@@ -1,3 +1,4 @@
+use datamininglab
 /*task 1*/
 select id_item,id_place,sum(total) as "Total" from fact_sale 
 group by id_item,id_place with 
