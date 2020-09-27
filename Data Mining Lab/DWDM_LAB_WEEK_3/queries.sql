@@ -55,7 +55,7 @@ select od.order_no,order_date,customer_name,oi.item_id from _order od
 inner join customer cus on od.customer_id = cus.customer_id
 inner join ordered_item oi on od.order_no = oi.order_no
 inner join stored_items sti on sti.item_id = oi.item_id;
-
+select distinct * from customer_order_details;
 -- Find all stores along with city name and phone that hold items ordered by  given customer
 create table customer_order_store_details(store_id int,city_name varchar(35),phone varchar(10),item_id int,customer_id int,customer_name varchar(30));
 
@@ -87,8 +87,11 @@ with rollup having sum(qantity_held) > 50;
 
 
 
-
-
+-- 8.Find the items, quantity ordered, customer, store and city of an order.
+SELECT distinct Customer_name,city_id,Qantity_held,description,s.store_id 
+FROM _Order ,Customer,Ordered_Item,Items, Stored_items s 
+WHERE _Order.Order_no =Ordered_Item.Order_no and Customer.Customer_id=_Order.customer_id 
+and Ordered_Item.Item_id= Items.Item_id and S.item_id= Items.item_id; 
 
 
 
