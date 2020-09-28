@@ -13,7 +13,7 @@ now = datetime.now()
 start_time = now.strftime("%H:%M:%S")
 print("Current Time =", start_time)
 # 100000000
-for i in range(0,3):
+for i in range(0,309270):
     sql = "INSERT INTO sales (order_id,product_id,emp_id,customer_id) VALUES (%s, %s,%s,%s)"
     val = (i+1,random.randint(1,9),random.randint(1,6),random.randint(1,6))
     print(i)
