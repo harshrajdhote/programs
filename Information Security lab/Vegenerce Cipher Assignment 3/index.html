@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Assignment 1 - Ceasers Cipher</title>
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <script src="assets/scripts/app.js" defer></script>
+  </head>
+  <body>
+    <section id="user-input" class="card">
+      <div class="control">
+        <label for="plainText"> Input File </label>
+        <input type="file" id="inputFile" />
+        <label for="plainText"> Input File Contents</label>
+        <input type="text" id="plainText"  />
+        <label for="key"> Key </label>
+        <input type="text" id="key"  />
+      </div>
+      
+      <button id="encrypt-btn">Encrypt</button>
+      <div id = "encryptResult" ></div>
+    </section>
+    <section id="user-input" class="card">
+        <div class="control">
+          <label for="cipherText">Cipher (*only valid cipher)</label>
+          <input type="text" id="cipherText"  />
+        </div>
+       
+        <button id="decrypt-btn">Decrypt</button>
+        <div id = "decryptResult"></div>
+      </section>
+     
+  </body>
+</html>
