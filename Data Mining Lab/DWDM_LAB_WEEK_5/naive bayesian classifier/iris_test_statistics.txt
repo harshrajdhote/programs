@@ -1,0 +1,8 @@
+----------------------------------------------------------
+Naive Bayes Summary Statistics
+----------------------------------------------------------
+Data Set : iris.data
+
+Accuracy Statistics for All 5 Experiments:[0.77,0.83,0.77,0.73,0.79]
+
+Classification Accuracy : 77.86206896551724%
